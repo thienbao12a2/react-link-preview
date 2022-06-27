@@ -36,6 +36,10 @@ If the component renders nothing, it means that no metadata could be scraped for
 
 This package uses a Heroku [proxy (open-source)](https://github.com/dhaiwat10/rlp-proxy) to get around CORS issues. The public proxy receives a lot of traffic (+ there is a rate limit) and is not recommended for production use.
 
+## My Issue:
+
+when using LinkPreview in a reusable component for example in my case Accordion component that renders multiple items using the map(), filter(), find() method, LinkPreview keeps requesting metadata when I click on another accordion instead of request metadata ONCE. This behavior happens when a customFetcher method is used, but not when not using customFetcher. To fix this issue, instead of using a customFetcher in our app, I cloned the react-link-preview repo and updated all proxy server links inside of react-link-preview source code. Then I updated project name, author name, links inside of package.json. Since there is a yarn.lock file, I use the command ```yarn install``` to install all dependencies and devdependencies. After all dependencies have been installed, I use ```yarn build``` to compile the files. Now in order to use it, I copied the generated dist folder and put it in a separated folder, or home directory and I publish it to npm using yarn publish. After successfully published, I can now import it to my project and install it using npm install bao-react-link-preview –legacy-peer-deps.
+
 ## Recommended workflow (for production)
 
 - Please [fork the proxy repo](https://github.com/dhaiwat10/rlp-proxy) and host your own copy of it.
